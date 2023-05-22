@@ -34,10 +34,14 @@ public class EasyMoving extends JPanel implements KeyListener{
     }
     @Override
     public void keyPressed(KeyEvent e) {
+
+    }
+    @Override
+    public void keyReleased(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            x-=50;
-            repaint();
-        }
+        x-=50;
+        repaint();
+    }
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             x+=50;
             repaint();
@@ -60,8 +64,5 @@ public class EasyMoving extends JPanel implements KeyListener{
             y = 0;
             repaint();
         }
-    }
-    @Override
-    public void keyReleased(KeyEvent e) {
     }
 }
