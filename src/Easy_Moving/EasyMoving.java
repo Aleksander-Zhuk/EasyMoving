@@ -1,3 +1,5 @@
+package Easy_Moving;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -11,8 +13,8 @@ public class EasyMoving extends JPanel implements KeyListener{
     private Timer timer ;
     int x = 0 , y = 0;
     EasyMoving () throws IOException {
-        image = ImageIO.read(new File("src/grass.jpg"));
-        image2 = ImageIO.read(new File("src/3.png"));
+        image = ImageIO.read(new File("src/Easy_Moving/grass.jpg"));
+        image2 = ImageIO.read(new File("src/Easy_Moving/3.png"));
         addKeyListener(this);
         setFocusable(true);
     }
