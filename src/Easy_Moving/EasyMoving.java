@@ -11,7 +11,7 @@ import java.io.IOException;
 public class EasyMoving extends JPanel implements KeyListener{
     private BufferedImage image,image2;
     private Timer timer ;
-    int x = 0 , y = 0;
+    int x = 0 , y = 0,xy2;
     EasyMoving () throws IOException {
         image = ImageIO.read(new File("src/Easy_Moving/grass.jpg"));
         image2 = ImageIO.read(new File("src/Easy_Moving/3.png"));
@@ -36,24 +36,25 @@ public class EasyMoving extends JPanel implements KeyListener{
     }
     @Override
     public void keyPressed(KeyEvent e) {
-
-    }
-    @Override
-    public void keyReleased(KeyEvent e) {
+        if (e.isShiftDown()){
+            xy2 = 100;
+        }
+        else {xy2 = 50;
+        }
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-        x-=50;
+        x-=xy2;
         repaint();
-    }
+        }
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            x+=50;
+            x+=xy2;
             repaint();
         }
         if (e.getKeyCode() == KeyEvent.VK_UP) {
-            y-=50;
+            y-=xy2;
             repaint();
         }
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            y+=50;
+            y+=xy2;
             repaint();
         }
         if (x >= 800 || y >= 800 ){
@@ -67,4 +68,7 @@ public class EasyMoving extends JPanel implements KeyListener{
             repaint();
         }
     }
-}
+
+    @Override
+    public void keyReleased(KeyEvent e) {  }
+    }
